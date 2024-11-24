@@ -10,9 +10,9 @@
 }
 
 .logo {
-    width: 150px; /* Размер изображения */
+    width: 150px; 
     height: auto;
-    cursor: pointer; /* Курсор при наведении на картинку */
+    cursor: pointer; 
 }
 body {
     font-family: "Parkinsans", sans-serif;
@@ -38,16 +38,16 @@ header, footer {
 }
 
 main {
-    display: flex; /* Используем flexbox для горизонтального расположения */
-    gap: 2rem; /* Расстояние между блоками */
+    display: flex; 
+    gap: 2rem; 
     margin: 2rem auto;
     max-width: 1200px;
     width: 100%;
-    flex-wrap: wrap; /* Если не хватает места, блоки будут переноситься на следующую строку */
+    flex-wrap: wrap; 
 }
 
 .section {
-    flex: 1 1 45%; /* Блоки будут занимать 45% от ширины контейнера */
+    flex: 1 1 45%; 
     background: white;
     border-radius: 12px;
     padding: 2rem;
@@ -109,29 +109,29 @@ footer {
 }
 
 nav ul {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
-    margin: 0; /* Убираем внешние отступы */
-    display: flex; /* Используем flexbox для горизонтального расположения */
-    justify-content: center; /* Выравнивание кнопок по центру */
-    gap: 10px; /* Расстояние между кнопками */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
 }
 
-/* Стили для кнопок */
+
 .nav-button {
-    background-color: #51c280; /* Зеленый фон */
-    border: none; /* Без рамки */
-    color: white; /* Белый текст */
-    padding: 14px 20px; /* Отступы */
-    text-align: center; /* Выравнивание текста */
-    text-decoration: none; /* Убираем подчеркивание */
-    font-size: 16px; /* Размер текста */
-    cursor: pointer; /* Курсор в виде руки */
-    border-radius: 4px; /* Скругленные углы */
-    transition: background-color 0.3s; /* Плавное изменение цвета */
+    background-color: #51c280;
+    border: none; 
+    color: white; 
+    padding: 14px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
 }
 
-/* Эффект при наведении */
+
 .nav-button:hover {
     background-color: #51c280;
 }
