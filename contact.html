@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор наследственности</title>
+    
+</head>
+<header>
+    <div class="logo-container">
+        <a href="index.html">
+        <img src="image-Photoroom.png" alt="Главная" class="logo">
+        </a>
+    </div>
+    <h1>Калькулятор наследственности</h1>
+    <!-- Навигационные кнопки -->
+    <nav>
+        <ul>
+           
+            <li><button class="nav-button" onclick="window.location.href='calculator.html'">Внешность</button></li>
+            <li><button class="nav-button" onclick="window.location.href='about.html'">Генетика</button></li>
+            <li><button class="nav-button" onclick="window.location.href='contact.html'">Аллергия</button></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container">
+        <h2>Аллергии у ребёнка</h2>
+        <div class="blocks">
+            <div class="block" id="mama">
+                <h2>Мама</h2>
+                <form id="mama-form">
+                    <label><input type="checkbox" name="allergen" value="пыленоз"> Пыленоз</label><br>
+                    <label><input type="checkbox" name="allergen" value="косточковые фрукты"> Косточковые фрукты</label><br>
+                    <label><input type="checkbox" name="allergen" value="лактоза"> Лактоза</label><br>
+                    <label><input type="checkbox" name="allergen" value="берёза"> Берёза</label><br>
+                    <label><input type="checkbox" name="allergen" value="перекрёстная аллергия"> Перекрёстная аллергия</label><br>
+                </form>
+            </div>
+
+            <div class="block" id="papa">
+                <h2>Папа</h2>
+                <form id="papa-form">
+                    <label><input type="checkbox" name="allergen" value="пыленоз"> Пыленоз</label><br>
+                    <label><input type="checkbox" name="allergen" value="косточковые фрукты"> Косточковые фрукты</label><br>
+                    <label><input type="checkbox" name="allergen" value="лактоза"> Лактоза</label><br>
+                    <label><input type="checkbox" name="allergen" value="берёза"> Берёза</label><br>
+                    <label><input type="checkbox" name="allergen" value="перекрёстная аллергия"> Перекрёстная аллергия</label><br>
+                </form>
+            </div>
+        </div>
+
+        <button id="checkAllergyBtn">Проверить вероятность аллергии у ребёнка</button>
+
+        <div id="result">
+            <h3>Результат:</h3>
+            <p id="allergy-result"></p>
+        </div>
+    </div>
+
+    <script>document.getElementById('checkAllergyBtn').addEventListener('click', function() {
+        const mamaForm = document.getElementById('mama-form');
+        const papaForm = document.getElementById('papa-form');
+    
+        const mamaAllergens = getSelectedAllergens(mamaForm);
+        const papaAllergens = getSelectedAllergens(papaForm);
+    
+        const commonAllergens = mamaAllergens.filter(allergen => papaAllergens.includes(allergen));
+        const mamaOnlyAllergens = mamaAllergens.filter(allergen => !papaAllergens.includes(allergen));
+        const papaOnlyAllergens = papaAllergens.filter(allergen => !mamaAllergens.includes(allergen));
+    
+        const result = calculateAllergyProbability(commonAllergens, mamaOnlyAllergens, papaOnlyAllergens);
+        displayResult(result);
+    });
+    
+    function getSelectedAllergens(form) {
+        const allergens = [];
+        const checkboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+        checkboxes.forEach(checkbox => {
+            allergens.push(checkbox.value);
+        });
+        return allergens;
+    }
+    
+    function calculateAllergyProbability(commonAllergens, mamaOnlyAllergens, papaOnlyAllergens) {
+        let resultText = '';
+    
+        commonAllergens.forEach(allergen => {
+            resultText += `У ребёнка будет аллергия на ${allergen} с вероятностью 80%.<br>`;
+        });
+    
+        mamaOnlyAllergens.forEach(allergen => {
+            resultText += `У ребёнка будет аллергия на ${allergen} с вероятностью 45%.<br>`;
+        });
+    
+        papaOnlyAllergens.forEach(allergen => {
+            resultText += `У ребёнка будет аллергия на ${allergen} с вероятностью 45%.<br>`;
+        });
+    
+        if (!resultText) {
+            resultText = 'Аллергии не совпадают. У ребёнка маловероятно возникновение аллергии.';
+        }
+    
+        return resultText;
+    }
+    
+    function displayResult(resultText) {
+        const resultElement = document.getElementById('allergy-result');
+        resultElement.innerHTML = resultText;
+    }</script>
+</body>
+</html>

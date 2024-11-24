@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Titillium+Web:wght@200&family=Unbounded:wght@200..900&display=swap');
+
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: white;
+    border-radius: 15px;
+}
+
+.logo {
+    width: 150px; /* Размер изображения */
+    height: auto;
+    cursor: pointer; /* Курсор при наведении на картинку */
+}
+body {
+    font-family: "Parkinsans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+header{
+    height: 150px;
+}
+header, footer {
+    background-color:cornflowerblue;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.section {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color: #ffffff;
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4b4b4b;
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
+}
+
+label {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+select, input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    color: #333;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+.result {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #4caf50;
+}
+
+footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+nav ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+    display: flex; /* Используем flexbox для горизонтального расположения */
+    justify-content: center; /* Выравнивание кнопок по центру */
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+/* Стили для кнопок */
+.nav-button {
+    background-color: #51c280; /* Зеленый фон */
+    border: none; /* Без рамки */
+    color: white; /* Белый текст */
+    padding: 14px 20px; /* Отступы */
+    text-align: center; /* Выравнивание текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 16px; /* Размер текста */
+    cursor: pointer; /* Курсор в виде руки */
+    border-radius: 4px; /* Скругленные углы */
+    transition: background-color 0.3s; /* Плавное изменение цвета */
+}
+
+/* Эффект при наведении */
+.nav-button:hover {
+    background-color: #51c280; /* Темный зеленый */
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #51c280;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #51c280;
+  }
+  
+  #result {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+  }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор наследственности</title>
+    
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+            <img src="image-Photoroom.png" alt="Главная" class="logo">
+            </a>
+        </div>
+        <h1>Калькулятор наследственности</h1>
+        <!-- Навигационные кнопки -->
+        <nav>
+            <ul>
+             
+                <li><button class="nav-button" onclick="window.location.href='calculator.html'">Внешность</button></li>
+                <li><button class="nav-button" onclick="window.location.href='about.html'">Генетика</button></li>
+                <li><button class="nav-button" onclick="window.location.href='contact.html'">Аллергия</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>Цвет глаз и рост ребенка</h2>
+            <label for="maleEyes">Цвет глаз отца:</label>
+            <select id="maleEyes">
+                <option value="blue">Голубой</option>
+                <option value="green">Зеленый</option>
+                <option value="brown">Карий</option>
+                <option value="gray">Серые</option>
+            </select>
+            <label for="femaleEyes">Цвет глаз матери:</label>
+            <select id="femaleEyes">
+                <option value="blue">Голубой</option>
+                <option value="green">Зеленый</option>
+                <option value="brown">Карий</option>
+                <option value="gray">Серые</option>
+            </select>
+            <label for="maleHeight">Рост отца (см):</label>
+            <input type="number" id="maleHeight" placeholder="Введите рост">
+            <label for="femaleHeight">Рост матери (см):</label>
+            <input type="number" id="femaleHeight" placeholder="Введите рост">
+            <button onclick="calculateEyeAndHeight()">Рассчитать</button>
+            <div id="eyeResult" class="result"></div>
+            <div id="heightResult" class="result"></div>
+        </div>
+
+    <script>
+    
+    function calculateEyeAndHeight() {
+        const maleEyes = document.getElementById('maleEyes').value;
+        const femaleEyes = document.getElementById('femaleEyes').value;
+        const maleHeight = parseFloat(document.getElementById('maleHeight').value);
+        const femaleHeight = parseFloat(document.getElementById('femaleHeight').value);
+
+        let eyeResult = '';
+        if (maleEyes === 'blue' && femaleEyes === 'blue') {
+            eyeResult = '99% голубой, 1% зеленый';
+        } else if ((maleEyes === 'blue' && femaleEyes === 'green') || 
+                   (maleEyes === 'green' && femaleEyes === 'blue')) {
+            eyeResult = '50% голубой, 50% зеленый';
+        } else if (maleEyes === 'green' && femaleEyes === 'green') {
+            eyeResult = '75% зеленый, 25% голубой';
+        } else if ((maleEyes === 'brown' && femaleEyes === 'green') || 
+                   (maleEyes === 'green' && femaleEyes === 'brown')) {
+            eyeResult = '50% карий, 50% зеленый';
+        } else if (maleEyes === 'brown' && femaleEyes === 'brown') {
+            eyeResult = '75% карий';
+        } else if ((maleEyes === 'blue' && femaleEyes === 'brown') || 
+                   (maleEyes === 'brown' && femaleEyes === 'blue')) {
+            eyeResult = '50% карий, 50% голубой';
+        }else if (maleEyes === 'gray' && femaleEyes === 'gray') {
+            eyeResult = '99% серые, 1% голубые';
+        }
+        const avgHeight = (maleHeight + femaleHeight) / 2;
+        const sonHeight = avgHeight + 6.5;
+        const daughterHeight = avgHeight - 6.5;
+
+        document.getElementById("eyeResult").textContent = 
+            `Цвет глаз: ${eyeResult}`;
+        document.getElementById("heightResult").textContent = 
+            `Рост: сын - ${sonHeight.toFixed(1)} см, дочь - ${daughterHeight.toFixed(1)} см.`;
+    }
+
+</script>
+<div class="redirect-container">
+    <button class="redirect-button" onclick="window.location.href='https://www.photomaker.io/ru/baby-AI-generator'">Перейти на сайт</button>
+</div>
+</main>
+</body>
+</html>
